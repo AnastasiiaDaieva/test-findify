@@ -1,0 +1,31 @@
+.Color__checkbox {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.Color__checkbox_relative {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.Color__checkbox:checked + .Color__checkbox_relative {
+  background-image: url(../../../icons/checkmark.svg);
+  background-repeat: no-repeat;
+  position: relative;
+  top: 0;
+  z-index: 20;
+  background-position: center;
+  background-size: contain;
+
+  background-origin: border-box;
+}

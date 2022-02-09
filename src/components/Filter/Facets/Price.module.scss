@@ -1,0 +1,13 @@
+@import '/src/index.module.scss';
+.Price {
+  display: flex;
+  flex-direction: column;
+}
+.Price__input {
+  width: 271px;
+}
+.Price__window {
+  border: 1px solid var(--checkbox-color);
+  padding: 5px 10px;
+  text-align: center;
+}

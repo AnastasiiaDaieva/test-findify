@@ -1,14 +1,18 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
+import { ReactComponent as CloseFacet } from '../../../icons/facet-close.svg';
 
-function Materials({ options }) {
+function Material({ options }) {
   return (
     <>
       {options === undefined ? (
         'Loading...'
       ) : (
         <>
-          <p>Material</p>
+          <div>
+            <p>Material</p>
+            <CloseFacet />
+          </div>
           {options.values.map(({ value, count }) => (
             <div key={nanoid()}>
               <input type="checkbox" id="scales" name="scales" />
@@ -22,4 +26,4 @@ function Materials({ options }) {
   );
 }
 
-export default Materials;
+export default Material;
