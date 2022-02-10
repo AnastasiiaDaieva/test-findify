@@ -4,4 +4,18 @@
 
 .App__main {
   display: flex;
+  flex-direction: column;
+  padding: 0px 17px;
+  padding-top: 20px;
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    padding: 20px 20px 30px 20px;
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 767px) {
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    padding: 30px, 26px, 30px, 15px;
+  }
 }

@@ -14,8 +14,8 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: 2px solid black;
-  border-radius: 2px;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 
 .Color__checkbox:checked + .Color__checkbox_relative {
