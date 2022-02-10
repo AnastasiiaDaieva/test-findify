@@ -39,7 +39,7 @@ function Price({ options }) {
       ) : (
         <section className={s.Price}>
           <div>
-            <p>Price</p>
+            <span>Price</span>
             <CloseFacet />
           </div>
           <input

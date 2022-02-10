@@ -61,6 +61,9 @@
   top: 0;
   left: 0;
   width: 103px;
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    width: 84px;
+  }
 }
 
 .ProductCard__sale_tag,
@@ -69,6 +72,9 @@
   top: 0;
   right: 0;
   width: 82px;
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    width: 62px;
+  }
 }
 
 .ProductCard__discount_text,

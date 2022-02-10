@@ -17,7 +17,7 @@ function Color({ options }) {
 
   return (
     <div>
-      <p>Color</p> <CloseFacet />
+      <span>Color</span> <CloseFacet />
       {colorsMap.map(({ name, code }) => (
         <div key={nanoid()}>
           <input

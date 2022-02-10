@@ -10,7 +10,7 @@ function Material({ options }) {
       ) : (
         <>
           <div>
-            <p>Material</p>
+            <span>Material</span>
             <CloseFacet />
           </div>
           {options.values.map(({ value, count }) => (
