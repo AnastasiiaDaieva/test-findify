@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test-findify/static/css/main.3ff13ad5.css",
-    "main.js": "/test-findify/static/js/main.c80ce001.js",
+    "main.js": "/test-findify/static/js/main.63d3dc7a.js",
     "index.html": "/test-findify/index.html",
     "static/media/checkmark.svg": "/test-findify/static/media/checkmark.c2de741e1babc87377db24023e8dda56.svg",
     "static/media/discount-sticker.svg": "/test-findify/static/media/discount-sticker.4927723b7dbe598060a81c1a1a233e5d.svg",
@@ -9,10 +9,10 @@
     "static/media/sale-sticker.svg": "/test-findify/static/media/sale-sticker.b606bb0a575cdfbae47983cd7d4812bb.svg",
     "static/media/facet-close.svg": "/test-findify/static/media/facet-close.e5efcaafa51c1a41fa5972e0326bc8ac.svg",
     "main.3ff13ad5.css.map": "/test-findify/static/css/main.3ff13ad5.css.map",
-    "main.c80ce001.js.map": "/test-findify/static/js/main.c80ce001.js.map"
+    "main.63d3dc7a.js.map": "/test-findify/static/js/main.63d3dc7a.js.map"
   },
   "entrypoints": [
     "static/css/main.3ff13ad5.css",
-    "static/js/main.c80ce001.js"
+    "static/js/main.63d3dc7a.js"
   ]
 }
