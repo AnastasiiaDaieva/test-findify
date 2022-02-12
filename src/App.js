@@ -34,7 +34,7 @@ function App() {
         'Loading...'
       ) : (
         <div className={s.App}>
-          <header>
+          <header className={s.App__header}>
             <Header />
           </header>
           <main className={s.App__main}>

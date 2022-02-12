@@ -32,6 +32,7 @@ function Price({ options }) {
     }
     console.log(currentMinPrice, currentMaxPrice);
   };
+  console.dir(document.querySelector('input'));
 
   return (
     <>
@@ -55,9 +56,10 @@ function Price({ options }) {
             type="range"
             onChange={getVals}
           />
-          <div>
+          <div className={s.Price__value}>
             <span className={s.Price__window}>$ {currentMinPrice}</span>
             <span className={s.Price__window}>${currentMaxPrice}</span>
+            <button type="button">Go</button>
           </div>
         </section>
       )}

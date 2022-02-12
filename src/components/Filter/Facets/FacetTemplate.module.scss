@@ -1,0 +1,29 @@
+@import '/src/index.module.scss';
+
+.FacetTemplate__options {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.FacetTemplate__option {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.FacetTemplate__wrapper {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &::after {
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px var(--divider-color);
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    z-index: 1;
+  }
+}

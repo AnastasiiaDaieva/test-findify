@@ -14,13 +14,13 @@ function FacetTemplate({ name, type, array }) {
     setShowFacet(prev => !prev);
   };
   return (
-    <>
+    <div className={s.FacetTemplate__wrapper}>
       <FacetHeading name={name} toggleCallback={toggleCallback} />
       {showFacet && (
         <div>
-          {facetType === 'text' || facetType === 'color' ? (
-            <ul className={s.FacetTemplate__options}>
-              <li key={nanoid()}>
+          <ul className={s.FacetTemplate__options}>
+            {facetType === 'text' || facetType === 'color' ? (
+              <li key={nanoid()} className={s.FacetTemplate__option}>
                 {facetType === 'text' ? (
                   <Material options={array} />
                 ) : (
@@ -28,14 +28,18 @@ function FacetTemplate({ name, type, array }) {
                 )}
                 {/* <input type="checkbox" /> <span>(count)</span> */}
               </li>
-            </ul>
-          ) : (
-            <></>
-          )}
-          {facetType === 'range' && <Price options={array} />}
+            ) : (
+              <></>
+            )}
+            {facetType === 'range' && (
+              <li key={nanoid()} className={s.FacetTemplate__option}>
+                <Price options={array} className />
+              </li>
+            )}
+          </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
