@@ -1,4 +1,4 @@
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import FacetHeading from './FacetHeading';
 import s from './FacetTemplate.module.scss';
 import { nanoid } from 'nanoid';

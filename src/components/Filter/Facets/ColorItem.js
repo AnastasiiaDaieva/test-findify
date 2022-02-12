@@ -1,7 +1,5 @@
 import s from './ColorItem.module.scss';
 import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 
 function ColorItem({
   checkedCallback,
@@ -11,20 +9,8 @@ function ColorItem({
   colorArray,
   colorsMap,
 }) {
-  console.log(colorArray, colorsMap);
-  //   const [colorsMap, setColorsMap] = useState([]);
-
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         'https://findify-assets.s3.amazonaws.com/test-task/test_color_mapping.json',
-  //       )
-  //       .then(results => setColorsMap(results.data));
-  //   }, []);
-
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
-    console.log(result);
 
     if (!result) {
       return 0;
