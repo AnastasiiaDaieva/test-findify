@@ -11,10 +11,10 @@ function ProductCard({ id, item }) {
   };
 
   return (
-    <div key={id} className={s.ProductCard}>
+    <li key={id} className={s.ProductCard}>
       <a href={product_url} target="_blank" rel="noreferrer noopener nofollow">
         {compare_at === null ? (
-          <>
+          <div className={s.ProductCard__thumb}>
             <div className={s.ProductCard__wrapper}>
               <img
                 src={image_url}
@@ -22,11 +22,13 @@ function ProductCard({ id, item }) {
                 className={s.ProductCard__image}
               />
             </div>
-            <li>{title}</li>
-            <p>$ {price[0]}</p>
-          </>
+            <div className={s.ProductCard__wrapper}>
+              <p className={s.ProductCard__title}>{title}</p>
+              <p className={s.ProductCard__price}>$ {price[0]}</p>
+            </div>
+          </div>
         ) : (
-          <>
+          <div className={s.ProductCard__thumb}>
             <div className={s.ProductCard__wrapper}>
               <div className={s.ProductCard__discount}>
                 <DiscountSticker className={s.ProductCard__discount_tag} />
@@ -44,16 +46,19 @@ function ProductCard({ id, item }) {
                 className={s.ProductCard__image}
               />
             </div>
-            <li>{title}</li>
-
-            <p>
-              <span>$ {compare_at}</span>
-              <span>$ {price}</span>
-            </p>
-          </>
+            <div className={s.ProductCard__wrapper}>
+              <p className={s.ProductCard__title}>{title}</p>
+              <p className={s.ProductCard__price}>
+                <span className={s.ProductCard__original_price}>
+                  $ {compare_at}
+                </span>
+                <span>$ {price}</span>
+              </p>
+            </div>
+          </div>
         )}
       </a>
-    </div>
+    </li>
   );
 }
 

@@ -1,3 +1,12 @@
+@import '/src/index.module.scss';
+
+.Color__count {
+  color: var(--add-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
 .Color__checkbox {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
@@ -14,7 +23,7 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: 1px solid black;
+  border-color: black;
   border-radius: 50%;
 }
 

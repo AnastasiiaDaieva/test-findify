@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { ReactComponent as CloseFacet } from '../../../icons/facet-close.svg';
 
 function Price({ options }) {
+  console.log(options);
   const getRange = () => {
-    const raw = options.values[0].value;
+    const raw = options[0].value;
     const transformed = raw.split('_');
     console.log(transformed);
     return transformed;
@@ -38,10 +39,6 @@ function Price({ options }) {
         'Loading...'
       ) : (
         <section className={s.Price}>
-          <div>
-            <span>Price</span>
-            <CloseFacet />
-          </div>
           <input
             id="minprice"
             className={s.Price__input}

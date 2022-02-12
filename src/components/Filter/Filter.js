@@ -6,6 +6,7 @@ import { ReactComponent as OpenFacet } from '../../icons/facet-open.svg';
 import Color from './Facets/Color';
 import Material from './Facets/Material';
 import s from './Filter.module.scss';
+import FacetTemplate from './Facets/FacetTemplate';
 
 const { default: Price } = require('./Facets/Price');
 
@@ -55,17 +56,17 @@ function Filter({ facets }) {
 
   return (
     <div className={s.Filter}>
-      <p>Filters</p>
+      <h2>Filters</h2>
 
       <ul className={s.Filter__options}>
-        {facets.map(({ name, type }) => (
-          <li key={nanoid()} onClick={() => setArray(type)}>
-            <span>{name}</span> <OpenFacet />
-          </li>
+        {facets.map(({ name, type, values }) => (
+          <FacetTemplate
+            key={nanoid()}
+            name={name}
+            type={type}
+            array={values}
+          />
         ))}
-        {currentFacets.includes('text') && <Material options={material} />}
-        {currentFacets.includes('color') && <Color options={color} />}
-        {currentFacets.includes('range') && <Price options={price} />}
       </ul>
 
       <div></div>

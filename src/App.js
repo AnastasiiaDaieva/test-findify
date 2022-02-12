@@ -6,6 +6,7 @@ import Grid from './components/Grid/Grid';
 import axios from 'axios';
 
 import { useEffect, useState } from 'react';
+import Breadcrumbs from './components/Grid/Breadcrumbs/Breadcrumbs';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -33,10 +34,15 @@ function App() {
         'Loading...'
       ) : (
         <div className={s.App}>
-          <Header />
+          <header>
+            <Header />
+          </header>
           <main className={s.App__main}>
             <Filter facets={facets} loading={loading} />
-            <Grid items={products} />
+            <div className={s.App__body}>
+              <Breadcrumbs />
+              <Grid items={products} />
+            </div>
           </main>
         </div>
       )}
