@@ -3,7 +3,7 @@ import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
 import { useState } from 'react';
 
 function ColorItem({ name, code, colorArray, colorsMap }) {
-  const [checked, setChecked] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
@@ -15,8 +15,8 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
     }
   };
 
-  const handleCheck = () => {
-    setChecked(prev => !prev);
+  const handleSelect = () => {
+    setSelected(prev => !prev);
   };
   return (
     <>
@@ -24,15 +24,15 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
         'Loading...'
       ) : (
         <li className={s.ColorItem__option}>
-          <div className={s.ColorItem__wrapper} onClick={handleCheck}>
+          <div className={s.ColorItem__wrapper} onClick={handleSelect}>
             <input
-              type="checkbox"
-              className={`${s.ColorItem__checkbox}, ${s.ColorItem__checkbox_relative}`}
+              type="radio"
+              className={`${s.ColorItem__radio}, ${s.ColorItem__radio_relative}`}
             />
-            {checked && <Checkmark className={s.ColorItem__checkmark} />}
+            {selected && <Checkmark className={s.ColorItem__checkmark} />}
             <span
               id="colorpicker"
-              className={s.ColorItem__checkbox}
+              className={s.ColorItem__radio}
               style={{
                 backgroundColor: code ? code : 'grey',
                 backgroundImage: `url(${code})`,

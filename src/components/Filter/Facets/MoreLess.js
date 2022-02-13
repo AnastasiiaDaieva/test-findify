@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ReactComponent as OpenFacet } from '../../../icons/facet-open.svg';
 import { ReactComponent as CloseFacet } from '../../../icons/facet-close.svg';
 

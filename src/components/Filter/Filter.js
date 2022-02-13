@@ -6,10 +6,16 @@ import FacetTemplate from './Facets/FacetTemplate';
 
 // const { default: Price } = require('./Facets/Price');
 
-function Filter({ facets }) {
+function Filter({ facets, breadcrumbsCallback }) {
   // const [currentFacets, setCurrentFacets] = useState([]);
   // const [material, color, price] = facets;
   // console.log(material, color, price);
+
+  const setFilter = array => {
+    console.log('setFilterArray:', array);
+    breadcrumbsCallback(array);
+    // breadcrumbsCallback();
+  };
   console.log(facets);
   // useEffect(() => {
   //   switch (currentFacet) {
@@ -61,6 +67,7 @@ function Filter({ facets }) {
             name={name}
             type={type}
             array={values}
+            breadcrumbs={() => setFilter}
           />
         ))}
       </ul>

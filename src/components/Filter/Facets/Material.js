@@ -4,8 +4,11 @@ import s from './Material.module.scss';
 import MaterialItem from './MaterialItem';
 import MoreLess from './MoreLess';
 
-function Material({ options }) {
+function Material({ options, passFilter, type }) {
   const [seeMore, setSeeMore] = useState(false);
+
+  const [selectedItems, setSelectedItems] = useState([]);
+
   const setMore = () => {
     setSeeMore(!seeMore);
   };
@@ -18,6 +21,18 @@ function Material({ options }) {
     }
   };
 
+  const getSelectedItems = value => {
+    setSelectedItems(prevState =>
+      prevState.some(item => item === value)
+        ? [...prevState.filter(item => item !== value)]
+        : [...prevState, value],
+    );
+    console.log(selectedItems);
+    const object = { type: type, values: selectedItems };
+    console.log('object:', object);
+    passFilter(object);
+  };
+
   return (
     <>
       {arrangedArray() === undefined ? (
@@ -25,7 +40,13 @@ function Material({ options }) {
       ) : (
         <ul className={s.Material__options}>
           {arrangedArray().map(({ value, count }) => (
-            <MaterialItem value={value} count={count} key={nanoid()} />
+            <MaterialItem
+              value={value}
+              count={count}
+              key={nanoid()}
+              selected={selectedItems}
+              passSelectedItem={getSelectedItems}
+            />
           ))}
           <MoreLess boolean={seeMore} setBoolean={setMore} />
         </ul>

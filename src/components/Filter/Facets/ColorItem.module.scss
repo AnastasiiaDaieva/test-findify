@@ -16,11 +16,11 @@
   line-height: 1.14;
 }
 
-.ColorItem__checkbox_relative {
+.ColorItem__radio_relative {
   display: none;
 }
 
-.ColorItem__checkbox {
+.ColorItem__radio {
   position: relative;
   display: inline-block;
   width: 20px;
@@ -30,7 +30,9 @@
 }
 .ColorItem__checkmark {
   position: absolute;
-  z-index: 100;
+  z-index: 10;
+  width: 12px;
+  height: 8px;
 }
 
 // .Color__checkbox_relative:checked + .Color__checkmark {

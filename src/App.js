@@ -12,6 +12,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [facets, setFacets] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -28,6 +29,11 @@ function App() {
       .finally(setLoading(false));
   }, []);
 
+  const setFinalFilter = array => {
+    setBreadcrumbs(array);
+    console.log(breadcrumbs);
+  };
+
   return (
     <>
       {loading ? (
@@ -38,9 +44,13 @@ function App() {
             <Header />
           </header>
           <main className={s.App__main}>
-            <Filter facets={facets} loading={loading} />
+            <Filter
+              facets={facets}
+              loading={loading}
+              breadcrumbs={setFinalFilter}
+            />
             <div className={s.App__body}>
-              <Breadcrumbs />
+              <Breadcrumbs appliedFilters={breadcrumbs} />
               <Grid items={products} />
             </div>
           </main>

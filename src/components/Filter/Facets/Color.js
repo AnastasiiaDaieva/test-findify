@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import MoreLess from './MoreLess';
 import ColorItem from './ColorItem';
 
-function Color({ options }) {
+function Color({ options, passFilter }) {
   const [seeMore, setSeeMore] = useState(false);
   console.log(options);
   const [colorsMap, setColorsMap] = useState([]);

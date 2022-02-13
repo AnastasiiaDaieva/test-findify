@@ -1,22 +1,20 @@
 import s from './Price.module.scss';
 import { useState, useEffect } from 'react';
-import { ReactComponent as CloseFacet } from '../../../icons/facet-close.svg';
 
-function Price({ options }) {
-  console.log(options);
+function Price({ options, passFilter }) {
   const getRange = () => {
     const raw = options[0].value;
     const transformed = raw.split('_');
-    console.log(transformed);
     return transformed;
   };
+
   const array = getRange();
 
   const [minPrice, setMinPrice] = useState(Math.round(array[0]));
   const [maxPrice, setMaxPrice] = useState(Math.round(array[1]));
   const [currentMinPrice, setCurrentMinPrice] = useState(minPrice);
   const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice);
-  // console.log(price);
+  const [range, setRange] = useState({});
 
   useEffect(() => {
     setMinPrice(Math.round(array[0]));
@@ -32,7 +30,13 @@ function Price({ options }) {
     }
     console.log(currentMinPrice, currentMaxPrice);
   };
-  console.dir(document.querySelector('input'));
+
+  const setPriceRange = () => {
+    console.log('min:', currentMinPrice);
+    console.log('max:', currentMaxPrice);
+    setRange({ min: currentMinPrice, highest: currentMaxPrice });
+    console.log('set range:', range);
+  };
 
   return (
     <>
@@ -57,9 +61,11 @@ function Price({ options }) {
             onChange={getVals}
           />
           <div className={s.Price__value}>
-            <span className={s.Price__window}>$ {currentMinPrice}</span>
+            <span className={s.Price__window}>${currentMinPrice}</span>
             <span className={s.Price__window}>${currentMaxPrice}</span>
-            <button type="button">Go</button>
+            <button type="button" onClick={setPriceRange}>
+              Go
+            </button>
           </div>
         </section>
       )}

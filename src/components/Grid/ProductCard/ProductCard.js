@@ -5,8 +5,8 @@ import { ReactComponent as DiscountSticker } from '../../../icons/discount-stick
 function ProductCard({ id, item }) {
   const { image_url, compare_at, product_url, price, title } = item;
   const calcDiscount = (compare_at, price) => {
-    const difference = compare_at - price;
-    const discount = Math.floor((difference / compare_at) * 100);
+    const difference = compare_at - Math.ceil(price);
+    const discount = Math.ceil((difference / compare_at) * 100);
     return discount;
   };
 
@@ -24,7 +24,7 @@ function ProductCard({ id, item }) {
             </div>
             <div className={s.ProductCard__wrapper}>
               <p className={s.ProductCard__title}>{title}</p>
-              <p className={s.ProductCard__price}>$ {price[0]}</p>
+              <p className={s.ProductCard__price}>$ {Math.ceil(price[0])}</p>
             </div>
           </div>
         ) : (
@@ -52,7 +52,7 @@ function ProductCard({ id, item }) {
                 <span className={s.ProductCard__original_price}>
                   $ {compare_at}
                 </span>
-                <span>$ {price}</span>
+                <span>$ {Math.ceil(price[0])}</span>
               </p>
             </div>
           </div>
