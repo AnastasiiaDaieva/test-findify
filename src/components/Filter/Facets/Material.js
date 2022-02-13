@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import s from './Material.module.scss';
+import MaterialItem from './MaterialItem';
 import MoreLess from './MoreLess';
 
 function Material({ options }) {
@@ -24,13 +25,7 @@ function Material({ options }) {
       ) : (
         <ul className={s.Material__options}>
           {arrangedArray().map(({ value, count }) => (
-            <li key={nanoid()} className={s.Material__option}>
-              <div className={s.Color__wrapper}>
-                <input type="checkbox" id="scales" name="scales" />
-                <label htmlFor="scales">{value}</label>
-              </div>
-              <span className={s.Material__count}>{`(${count})`}</span>
-            </li>
+            <MaterialItem value={value} count={count} key={nanoid()} />
           ))}
           <MoreLess boolean={seeMore} setBoolean={setMore} />
         </ul>

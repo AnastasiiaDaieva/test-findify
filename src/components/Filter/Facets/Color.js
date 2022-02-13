@@ -6,9 +6,7 @@ import MoreLess from './MoreLess';
 import ColorItem from './ColorItem';
 
 function Color({ options }) {
-  const [checked, setChecked] = useState(false);
   const [seeMore, setSeeMore] = useState(false);
-  console.log(checked);
   console.log(options);
   const [colorsMap, setColorsMap] = useState([]);
   console.log(colorsMap);
@@ -41,12 +39,10 @@ function Color({ options }) {
           {arrangedArray().map(({ name, code }) => (
             <ColorItem
               key={nanoid()}
-              checked={checked}
               name={name}
               code={code}
               colorArray={options}
               colorsMap={colorsMap}
-              checkedCallback={() => setChecked(prev => !prev)}
             />
           ))}
           <MoreLess boolean={seeMore} setBoolean={setMore} />

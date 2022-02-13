@@ -1,11 +1,3 @@
 .Material__options {
   composes: Color__options from './Color.module.scss';
 }
-
-.Material__option {
-  composes: Color__option from './Color.module.scss';
-}
-
-.Material__count {
-  composes: Color__count from './Color.module.scss';
-}

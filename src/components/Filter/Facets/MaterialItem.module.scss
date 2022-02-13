@@ -1,0 +1,19 @@
+@import '/src/index.module.scss';
+
+.MaterialItem__option {
+  composes: ColorItem__option from './ColorItem.module.scss';
+}
+
+.MaterialItem__count {
+  composes: ColorItem__count from './ColorItem.module.scss';
+}
+
+.MaterialItem__checkbox_relative {
+  composes: ColorItem__checkbox_relative from './ColorItem.module.scss';
+}
+
+.MaterialItem__checkbox {
+  composes: ColorItem__checkbox from './ColorItem.module.scss';
+  border-radius: 0;
+  border: 1px solid var(--checkbox-color);
+}
