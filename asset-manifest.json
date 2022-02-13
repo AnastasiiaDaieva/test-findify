@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/test-findify/static/css/main.d78188bb.css",
-    "main.js": "/test-findify/static/js/main.d7ee2e18.js",
+    "main.css": "/test-findify/static/css/main.bb15a44c.css",
+    "main.js": "/test-findify/static/js/main.fea7b66c.js",
     "index.html": "/test-findify/index.html",
     "static/media/checkmark.svg": "/test-findify/static/media/checkmark.c2de741e1babc87377db24023e8dda56.svg",
     "static/media/discount-sticker.svg": "/test-findify/static/media/discount-sticker.4927723b7dbe598060a81c1a1a233e5d.svg",
     "static/media/facet-open.svg": "/test-findify/static/media/facet-open.28f8e58d91015434706c7064bcc49790.svg",
     "static/media/sale-sticker.svg": "/test-findify/static/media/sale-sticker.b606bb0a575cdfbae47983cd7d4812bb.svg",
     "static/media/facet-close.svg": "/test-findify/static/media/facet-close.e5efcaafa51c1a41fa5972e0326bc8ac.svg",
-    "main.d78188bb.css.map": "/test-findify/static/css/main.d78188bb.css.map",
-    "main.d7ee2e18.js.map": "/test-findify/static/js/main.d7ee2e18.js.map"
+    "main.bb15a44c.css.map": "/test-findify/static/css/main.bb15a44c.css.map",
+    "main.fea7b66c.js.map": "/test-findify/static/js/main.fea7b66c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d78188bb.css",
-    "static/js/main.d7ee2e18.js"
+    "static/css/main.bb15a44c.css",
+    "static/js/main.fea7b66c.js"
   ]
 }
