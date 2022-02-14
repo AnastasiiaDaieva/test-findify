@@ -6,8 +6,12 @@
   flex-direction: column;
 
   @media screen and (min-width: 500px) {
-    min-width: 337px;
+    min-width: 180px;
+    max-width: 337px;
     margin-right: 24px;
+  }
+  @media screen and (min-width: 1024px) {
+    min-width: 337px;
   }
 }
 

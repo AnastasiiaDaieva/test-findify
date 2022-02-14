@@ -1,15 +1,17 @@
 import { nanoid } from 'nanoid';
 import axios from 'axios';
+
 import s from './Color.module.scss';
+
 import { useEffect, useState } from 'react';
+
 import MoreLess from './MoreLess';
 import ColorItem from './ColorItem';
 
-function Color({ options, passFilter }) {
+function Color({ options }) {
   const [seeMore, setSeeMore] = useState(false);
-  console.log(options);
   const [colorsMap, setColorsMap] = useState([]);
-  console.log(colorsMap);
+
   useEffect(() => {
     axios
       .get(

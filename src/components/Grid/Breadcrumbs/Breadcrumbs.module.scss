@@ -1,7 +1,38 @@
+@import '/src/index.module.scss';
+
 .Breadcrumbs {
-  // display: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 1.14;
+  font-family: Roboto;
+  font-weight: 400;
   margin-bottom: 22px;
-  @media screen and (min-width: 768px) {
-    // visibility: hidden;
+  color: var(--add-color);
+}
+
+.Breadcrumbs__unit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-transform: none;
+  &:not(:last-child) {
+    margin-right: 12px;
+    &::after {
+      content: '/';
+      font-size: 14px;
+      margin-left: 12px;
+    }
   }
+}
+
+.Breadcrumbs__value {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.Breadcrumbs__icon {
+  margin: 0;
 }

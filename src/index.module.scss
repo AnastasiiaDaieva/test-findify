@@ -31,14 +31,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-color);
-  line-height: 1.5;
+  line-height: 1.14;
   font-weight: 500;
+  font-style: normal;
   text-transform: uppercase;
 }
 
 button {
   display: block;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 
   &:hover {
   }

@@ -1,18 +1,24 @@
 import Header from './components/Header/Header';
-
-import s from './App.module.scss';
+import Breadcrumbs from './components/Grid/Breadcrumbs/Breadcrumbs';
 import Filter from './components/Filter/Filter';
 import Grid from './components/Grid/Grid';
-import axios from 'axios';
 
+import s from './App.module.scss';
+
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Breadcrumbs from './components/Grid/Breadcrumbs/Breadcrumbs';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [facets, setFacets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [breadcrumbs, setBreadcrumbs] = useState([]);
+
+  const hardCodeBreadcrumbs = [
+    { type: 'text', value: 'Amethyst' },
+    { type: 'color', value: '#fff' },
+    { type: 'range', value: '1-500' },
+  ];
 
   useEffect(() => {
     setLoading(true);
@@ -29,9 +35,9 @@ function App() {
       .finally(setLoading(false));
   }, []);
 
+  // an unfinished attempt to handle breadcrumbs
   const setFinalFilter = array => {
     setBreadcrumbs(array);
-    console.log(breadcrumbs);
   };
 
   return (
@@ -50,7 +56,14 @@ function App() {
               breadcrumbs={setFinalFilter}
             />
             <div className={s.App__body}>
-              <Breadcrumbs appliedFilters={breadcrumbs} />
+              <Breadcrumbs
+                appliedFilters={hardCodeBreadcrumbs}
+                setFinalFilter={setFinalFilter}
+                style={{
+                  display: hardCodeBreadcrumbs.length > 0 ? 'flex' : 'none',
+                }}
+              />
+
               <Grid items={products} />
             </div>
           </main>

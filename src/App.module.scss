@@ -23,13 +23,16 @@
 }
 
 .App__header {
-  margin-bottom: 30px;
-  text-align: left;
   font-weight: 500;
   font-size: 24px;
   line-height: 1.16;
-  padding: 36px 0 21px 31px;
   position: relative;
+  padding-top: 50px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+    padding: 36px 0 21px 31px;
+  }
+
   &::after {
     content: '';
     width: 100%;

@@ -1,5 +1,7 @@
 import s from './ColorItem.module.scss';
+
 import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
+
 import { useState } from 'react';
 
 function ColorItem({ name, code, colorArray, colorsMap }) {
@@ -18,6 +20,7 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
   const handleSelect = () => {
     setSelected(prev => !prev);
   };
+
   return (
     <>
       {colorsMap === undefined ? (
@@ -29,7 +32,6 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
               type="radio"
               className={`${s.ColorItem__radio}, ${s.ColorItem__radio_relative}`}
             />
-            {selected && <Checkmark className={s.ColorItem__checkmark} />}
             <span
               id="colorpicker"
               className={s.ColorItem__radio}
@@ -39,6 +41,14 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
                 border: code === '#fff' && '1px solid black',
               }}
             ></span>
+            {selected && (
+              <Checkmark
+                className={s.ColorItem__checkmark}
+                width="12px"
+                height="12px"
+                style={{ color: code === '#000000' ? '#fff' : '#000' }}
+              />
+            )}
             <label htmlFor="colorpicker">{name}</label>
           </div>
           {colorsMap.length > 1 ? (

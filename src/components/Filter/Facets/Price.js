@@ -1,5 +1,8 @@
 import s from './Price.module.scss';
+
 import { useState, useEffect } from 'react';
+
+import { ReactComponent as PriceDivider } from '../../../icons/price-divider.svg';
 
 function Price({ options, passFilter }) {
   const getRange = () => {
@@ -28,13 +31,10 @@ function Price({ options, passFilter }) {
     } else {
       setCurrentMaxPrice(e.target.value);
     }
-    console.log(currentMinPrice, currentMaxPrice);
   };
 
   const setPriceRange = () => {
-    console.log('min:', currentMinPrice);
-    console.log('max:', currentMaxPrice);
-    setRange({ min: currentMinPrice, highest: currentMaxPrice });
+    passFilter({ min: currentMinPrice, highest: currentMaxPrice });
     console.log('set range:', range);
   };
 
@@ -61,9 +61,14 @@ function Price({ options, passFilter }) {
             onChange={getVals}
           />
           <div className={s.Price__value}>
-            <span className={s.Price__window}>${currentMinPrice}</span>
-            <span className={s.Price__window}>${currentMaxPrice}</span>
-            <button type="button" onClick={setPriceRange}>
+            <span className={s.Price__window}>$ {currentMinPrice}</span>
+            <PriceDivider className={s.Price__divider} />
+            <span className={s.Price__window}>$ {currentMaxPrice}</span>
+            <button
+              type="button"
+              onClick={setPriceRange}
+              className={s.Price__button}
+            >
               Go
             </button>
           </div>

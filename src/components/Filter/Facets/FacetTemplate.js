@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import FacetHeading from './FacetHeading';
-import s from './FacetTemplate.module.scss';
 import { nanoid } from 'nanoid';
+
+import s from './FacetTemplate.module.scss';
+
+import FacetHeading from './FacetHeading';
 import Price from './Price';
 import Color from './Color';
 import Material from './Material';
 
 function FacetTemplate({ name, type, array, breadcrumbs }) {
-  // const [facetType, setFacetType] = useState(type);
   const [showFacet, setShowFacet] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
+  // an unfinished attempt to pass the filter options
   useEffect(() => {
     breadcrumbs();
   }, []);
@@ -24,6 +26,7 @@ function FacetTemplate({ name, type, array, breadcrumbs }) {
     console.log('templateObject:', selectedFilters);
     breadcrumbs(selectedFilters);
   };
+
   return (
     <div className={s.FacetTemplate__wrapper}>
       <FacetHeading name={name} toggleCallback={toggleCallback} />

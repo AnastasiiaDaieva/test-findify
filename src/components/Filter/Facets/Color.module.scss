@@ -5,38 +5,3 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
-.Color__option {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
-}
-
-.Color__wrapper {
-}
-
-.Color__count {
-  color: var(--add-color);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.14;
-}
-
-.Color__radio_relative {
-  display: none;
-}
-
-.Color__radio {
-  position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-.Color__checkmark {
-  position: absolute;
-  z-index: 100;
-}

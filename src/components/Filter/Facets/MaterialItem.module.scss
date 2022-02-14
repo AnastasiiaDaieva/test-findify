@@ -8,6 +8,10 @@
   composes: ColorItem__count from './ColorItem.module.scss';
 }
 
+.MaterialItem__wrapper {
+  composes: ColorItem__wrapper from './ColorItem.module.scss';
+}
+
 .MaterialItem__radio_relative {
   composes: ColorItem__radio_relative from './ColorItem.module.scss';
 }
@@ -21,4 +25,5 @@
 
 .MaterialItem__checkmark {
   composes: ColorItem__checkmark from './ColorItem.module.scss';
+  left: 4%;
 }

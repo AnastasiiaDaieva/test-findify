@@ -1,9 +1,11 @@
 import s from './ProductCard.module.scss';
+
 import { ReactComponent as SaleSticker } from '../../../icons/sale-sticker.svg';
 import { ReactComponent as DiscountSticker } from '../../../icons/discount-sticker.svg';
 
 function ProductCard({ id, item }) {
   const { image_url, compare_at, product_url, price, title } = item;
+
   const calcDiscount = (compare_at, price) => {
     const difference = compare_at - Math.ceil(price);
     const discount = Math.ceil((difference / compare_at) * 100);
@@ -14,8 +16,8 @@ function ProductCard({ id, item }) {
     <li key={id} className={s.ProductCard}>
       <a href={product_url} target="_blank" rel="noreferrer noopener nofollow">
         {compare_at === null ? (
-          <div className={s.ProductCard__thumb}>
-            <div className={s.ProductCard__wrapper}>
+          <>
+            <div className={s.ProductCard__img_wrapper}>
               <img
                 src={image_url}
                 alt={title}
@@ -26,10 +28,10 @@ function ProductCard({ id, item }) {
               <p className={s.ProductCard__title}>{title}</p>
               <p className={s.ProductCard__price}>$ {Math.ceil(price[0])}</p>
             </div>
-          </div>
+          </>
         ) : (
-          <div className={s.ProductCard__thumb}>
-            <div className={s.ProductCard__wrapper}>
+          <>
+            <div className={s.ProductCard__img_wrapper}>
               <div className={s.ProductCard__discount}>
                 <DiscountSticker className={s.ProductCard__discount_tag} />
                 <p className={s.ProductCard__discount_text}>
@@ -55,7 +57,7 @@ function ProductCard({ id, item }) {
                 <span>$ {Math.ceil(price[0])}</span>
               </p>
             </div>
-          </div>
+          </>
         )}
       </a>
     </li>
