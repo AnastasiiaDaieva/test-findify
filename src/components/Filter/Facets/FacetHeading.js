@@ -11,7 +11,6 @@ function FacetHeading({ name, toggleCallback }) {
   const toggleFacet = () => {
     setIsOpen(prev => !prev);
     toggleCallback();
-    console.log(isOpen);
   };
 
   return (

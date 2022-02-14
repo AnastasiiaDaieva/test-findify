@@ -20,7 +20,7 @@ function Material({ options, passFilter, type }) {
       return options.slice(0, 6);
     }
   };
-
+  // an unfinished attempt to pass filter values
   const getSelectedItems = value => {
     setSelectedItems(prevState =>
       prevState.some(item => item === value)
@@ -29,7 +29,6 @@ function Material({ options, passFilter, type }) {
     );
     console.log(selectedItems);
     const object = { type: type, values: selectedItems };
-    console.log('object:', object);
     passFilter(object);
   };
 

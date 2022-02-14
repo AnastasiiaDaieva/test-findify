@@ -6,11 +6,6 @@ import { ReactComponent as BcRemove } from '../../../icons/bc-remove.svg';
 import { ReactComponent as BcColor } from '../../../icons/bc-color.svg';
 
 function Breadcrumbs({ appliedFilters, setFinalFilter }) {
-  // an unfinished attempt to handle breadcrumbs
-  useEffect(() => {
-    console.log(appliedFilters);
-  }, [appliedFilters]);
-
   return (
     <>
       {appliedFilters ? (

@@ -17,7 +17,8 @@ function Color({ options }) {
       .get(
         'https://findify-assets.s3.amazonaws.com/test-task/test_color_mapping.json',
       )
-      .then(results => setColorsMap(results.data));
+      .then(results => setColorsMap(results.data))
+      .catch(error => console.log(error.message));
   }, []);
 
   const setMore = () => {

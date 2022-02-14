@@ -29,7 +29,6 @@ function App() {
       .then(results => {
         setProducts(results.data.items);
         setFacets(results.data.facets);
-        console.log(results.data);
       })
       .catch(error => console.log(error.message))
       .finally(setLoading(false));

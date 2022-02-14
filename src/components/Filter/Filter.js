@@ -6,14 +6,13 @@ import FacetTemplate from './Facets/FacetTemplate';
 
 function Filter({ facets, breadcrumbsCallback }) {
   const setFilter = array => {
-    console.log('setFilterArray:', array);
+    // console.log('setFilterArray:', array);
     breadcrumbsCallback(array);
   };
 
   return (
     <div className={s.Filter}>
       <h2 className={s.Filter__heading}>Filters</h2>
-
       <ul className={s.Filter__options}>
         {facets.map(({ name, type, values }) => (
           <FacetTemplate

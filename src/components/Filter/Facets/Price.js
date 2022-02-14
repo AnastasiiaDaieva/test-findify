@@ -33,9 +33,10 @@ function Price({ options, passFilter }) {
     }
   };
 
+  // an unfinished attempt to pass filter values
   const setPriceRange = () => {
     passFilter({ min: currentMinPrice, highest: currentMaxPrice });
-    console.log('set range:', range);
+    // console.log('set range:', range);
   };
 
   return (

@@ -12,7 +12,7 @@ function FacetTemplate({ name, type, array, breadcrumbs }) {
   const [showFacet, setShowFacet] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
-  // an unfinished attempt to pass the filter options
+  // an unfinished attempt to pass filter values
   useEffect(() => {
     breadcrumbs();
   }, []);
@@ -21,6 +21,7 @@ function FacetTemplate({ name, type, array, breadcrumbs }) {
     setShowFacet(prev => !prev);
   };
 
+  // an unfinished attempt to pass filter values
   const passBreadcrumbs = object => {
     setSelectedFilters(prevState => [...prevState, object]);
     console.log('templateObject:', selectedFilters);
