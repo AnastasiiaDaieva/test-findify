@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   &:not(:last-child) {
     margin-bottom: 16px;
   }
@@ -29,8 +30,10 @@
 }
 .ColorItem__wrapper {
   position: relative;
+  align-items: center;
 }
 .ColorItem__checkmark {
+  display: block;
   position: absolute;
   z-index: 10;
   width: 12px;
@@ -39,5 +42,4 @@
   top: 25%;
   left: 6%;
   margin: 0;
-  filter: drop-shadow(5px 5px 5px rgba(255, 255, 255, 1));
 }

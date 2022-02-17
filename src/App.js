@@ -6,7 +6,8 @@ import Grid from './components/Grid/Grid';
 import s from './App.module.scss';
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { UserContext } from './UserContext';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -19,6 +20,9 @@ function App() {
     { type: 'color', value: '#fff' },
     { type: 'range', value: '1-500' },
   ];
+
+  const appContext = useContext(UserContext);
+  console.log('app context:', appContext);
 
   useEffect(() => {
     setLoading(true);
@@ -56,7 +60,7 @@ function App() {
             />
             <div className={s.App__body}>
               <Breadcrumbs
-                appliedFilters={hardCodeBreadcrumbs}
+                filterArray={appContext}
                 setFinalFilter={setFinalFilter}
                 style={{
                   display: hardCodeBreadcrumbs.length > 0 ? 'flex' : 'none',

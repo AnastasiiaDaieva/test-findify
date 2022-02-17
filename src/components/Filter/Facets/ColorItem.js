@@ -2,14 +2,17 @@ import s from './ColorItem.module.scss';
 
 import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../../UserContext';
 
 function ColorItem({ name, code, colorArray, colorsMap }) {
   const [selected, setSelected] = useState(false);
+  const context = useContext(UserContext);
+  console.log(context);
 
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
-
+    console.log(code);
     if (!result) {
       return 0;
     } else {
@@ -17,8 +20,27 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
     }
   };
 
+  //  const hardCodeBreadcrumbs = [
+  //    { type: 'text', value: 'Amethyst' },
+  //    { type: 'color', value: '#fff' },
+  //    { type: 'range', value: '1-500' },
+  //  ];
+
+  const checkObjects = (array, type, code) => {
+    const findType = array.some(object => object.type === type);
+    console.log(findType, code);
+  };
+
   const handleSelect = () => {
     setSelected(prev => !prev);
+    const colorObject = { type: 'color', value: code };
+    console.log('array:', context.appliedFilters);
+    // checkObjects(
+    //   context.appliedFilters.length > 0
+    //     ? checkObjects(context.appliedFilters, ...colorObject)
+    //     : context.setAppliedFilters(prev => [...prev, colorObject]),
+    // );
+    context.setAppliedFilters(prev => [...prev, colorObject]);
   };
 
   return (
@@ -46,7 +68,10 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
                 className={s.ColorItem__checkmark}
                 width="12px"
                 height="12px"
-                style={{ color: code === '#000000' ? '#fff' : '#000' }}
+                style={{
+                  fill: code === '#000000' ? '#ffffff' : 'rgb(0, 0, 0)',
+                  color: code === '#000000' ? '#ffffff' : 'rgb(0, 0, 0)',
+                }}
               />
             )}
             <label htmlFor="colorpicker">{name}</label>
