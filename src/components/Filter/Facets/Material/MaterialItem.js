@@ -1,6 +1,6 @@
 import s from './MaterialItem.module.scss';
 
-import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
+import { ReactComponent as Checkmark } from '../../../../icons/checkmark.svg';
 
 function MaterialItem({ value, count, selected, passSelectedItem }) {
   const handleCheck = () => {

@@ -1,0 +1,11 @@
+.ConditionalPrice {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.ConditionalPrice__original {
+  color: var(--add-color);
+  margin-right: 10px;
+  text-decoration: rgb(0, 0, 0) line-through;
+}

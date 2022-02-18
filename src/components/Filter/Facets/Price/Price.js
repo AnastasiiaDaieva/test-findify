@@ -2,7 +2,7 @@ import s from './Price.module.scss';
 
 import { useState, useEffect } from 'react';
 
-import { ReactComponent as PriceDivider } from '../../../icons/price-divider.svg';
+import { ReactComponent as PriceDivider } from '../../../../icons/price-divider.svg';
 
 function Price({ options, passFilter }) {
   const getRange = () => {

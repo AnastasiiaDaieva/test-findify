@@ -49,88 +49,6 @@
   }
 }
 
-.ProductCard__img_wrapper {
-  margin-bottom: 25px;
-
-  @media screen and (min-width: 500px) and (max-width: 767px) {
-    margin-bottom: 15px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-}
-.ProductCard__image {
-  width: 341px;
-  height: 488px;
-  object-fit: cover;
-
-  @media screen and (min-width: 400px) and (max-width: 499px) {
-    width: 186px;
-    height: 265px;
-  }
-
-  @media screen and (min-width: 500px) and (max-width: 1279px) {
-    max-width: 200px;
-    max-height: 354px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    min-width: 245px;
-    height: 354px;
-  }
-}
-
-.ProductCard__discount,
-.ProductCard__sale {
-  position: relative;
-}
-
-.ProductCard__discount_tag {
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 0;
-}
-.ProductCard__sale_tag {
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  width: 82px;
-}
-
-.ProductCard__discount_text,
-.ProductCard__sale_text {
-  position: absolute;
-  z-index: 20;
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  top: 7px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  text-align: center;
-}
-
-.ProductCard__discount_text {
-  left: 22px;
-
-  @media screen and (min-width: 400px) and (max-width: 499px) {
-    left: 9px;
-  }
-}
-
-.ProductCard__sale_text {
-  right: 22px;
-
-  @media screen and (min-width: 400px) and (max-width: 499px) {
-    right: 5px;
-  }
-}
-
 .ProductCard__title {
   font-size: 12px;
   line-height: 1.16;
@@ -143,16 +61,4 @@
   @media screen and (min-width: 500px) {
     margin-bottom: 18px;
   }
-}
-
-.ProductCard__price {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-}
-
-.ProductCard__original_price {
-  color: var(--add-color);
-  margin-right: 10px;
-  text-decoration: rgb(0, 0, 0) line-through;
 }

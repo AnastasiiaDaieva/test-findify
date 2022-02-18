@@ -4,9 +4,9 @@ import { nanoid } from 'nanoid';
 import s from './FacetTemplate.module.scss';
 
 import FacetHeading from './FacetHeading';
-import Price from './Price';
-import Color from './Color';
-import Material from './Material';
+import Price from '../Price/Price';
+import Color from '../Color/Color';
+import Material from '../Material/Material';
 
 function FacetTemplate({ name, type, array, breadcrumbs }) {
   const [showFacet, setShowFacet] = useState(false);

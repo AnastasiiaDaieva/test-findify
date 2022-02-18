@@ -1,0 +1,51 @@
+@import '/src/index.module.scss';
+
+.Discount__percentage,
+.Discount__sale {
+  position: relative;
+}
+
+.Discount__percentage_tag {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.Discount__sale_tag {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 82px;
+}
+
+.Discount__percentage_text,
+.Discount__sale_text {
+  position: absolute;
+  z-index: 20;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 7px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+}
+
+.Discount__percentage_text {
+  left: 22px;
+
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    left: 9px;
+  }
+}
+
+.Discount__sale_text {
+  right: 22px;
+
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    right: 5px;
+  }
+}

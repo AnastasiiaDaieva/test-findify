@@ -1,0 +1,32 @@
+.ConditionalImage__wrapper {
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 500px) and (max-width: 767px) {
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.ConditionalImage {
+  width: 341px;
+  height: 488px;
+  object-fit: cover;
+
+  @media screen and (min-width: 400px) and (max-width: 499px) {
+    width: 186px;
+    height: 265px;
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 1279px) {
+    max-width: 200px;
+    max-height: 354px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 245px;
+    height: 354px;
+  }
+}

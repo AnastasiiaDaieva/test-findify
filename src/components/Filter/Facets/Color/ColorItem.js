@@ -1,9 +1,9 @@
 import s from './ColorItem.module.scss';
 
-import { ReactComponent as Checkmark } from '../../../icons/checkmark.svg';
+import { ReactComponent as Checkmark } from '../../../../icons/checkmark.svg';
 
 import { useContext, useState } from 'react';
-import { UserContext } from '../../../UserContext';
+import { UserContext } from 'UserContext';
 
 function ColorItem({ name, code, colorArray, colorsMap }) {
   const [selected, setSelected] = useState(false);

@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 
 import s from './Filter.module.scss';
 
-import FacetTemplate from './Facets/FacetTemplate';
+import FacetTemplate from './Facets/FacetElements/FacetTemplate';
 
 function Filter({ facets, breadcrumbsCallback }) {
   const setFilter = array => {

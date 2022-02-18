@@ -15,11 +15,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [breadcrumbs, setBreadcrumbs] = useState([]);
 
-  const hardCodeBreadcrumbs = [
-    { type: 'text', value: 'Amethyst' },
-    { type: 'color', value: '#fff' },
-    { type: 'range', value: '1-500' },
-  ];
+  // const hardCodeBreadcrumbs = [
+  //   { type: 'text', value: 'Amethyst' },
+  //   { type: 'color', value: '#fff' },
+  //   { type: 'range', value: '1-500' },
+  // ];
 
   const appContext = useContext(UserContext);
   console.log('app context:', appContext);
@@ -62,9 +62,9 @@ function App() {
               <Breadcrumbs
                 filterArray={appContext}
                 setFinalFilter={setFinalFilter}
-                style={{
-                  display: hardCodeBreadcrumbs.length > 0 ? 'flex' : 'none',
-                }}
+                // style={{
+                //   display: hardCodeBreadcrumbs.length > 0 ? 'flex' : 'none',
+                // }}
               />
 
               <Grid items={products} />

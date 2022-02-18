@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import s from './Material.module.scss';
 import MaterialItem from './MaterialItem';
-import MoreLess from './MoreLess';
+import MoreLess from '../FacetElements/MoreLess';
 
 function Material({ options, passFilter, type }) {
   const [seeMore, setSeeMore] = useState(false);
@@ -37,7 +37,7 @@ function Material({ options, passFilter, type }) {
       {arrangedArray() === undefined ? (
         'Loading...'
       ) : (
-        <ul className={s.Material__options}>
+        <>
           {arrangedArray().map(({ value, count }) => (
             <MaterialItem
               value={value}
@@ -48,7 +48,7 @@ function Material({ options, passFilter, type }) {
             />
           ))}
           <MoreLess boolean={seeMore} setBoolean={setMore} />
-        </ul>
+        </>
       )}
     </>
   );
