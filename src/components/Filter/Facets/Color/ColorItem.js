@@ -8,11 +8,10 @@ import { UserContext } from 'UserContext';
 function ColorItem({ name, code, colorArray, colorsMap }) {
   const [selected, setSelected] = useState(false);
   const context = useContext(UserContext);
-  console.log(context);
+  // console.log(context);
 
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
-    console.log(code);
     if (!result) {
       return 0;
     } else {
@@ -20,26 +19,11 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
     }
   };
 
-  //  const hardCodeBreadcrumbs = [
-  //    { type: 'text', value: 'Amethyst' },
-  //    { type: 'color', value: '#fff' },
-  //    { type: 'range', value: '1-500' },
-  //  ];
-
-  const checkObjects = (array, type, code) => {
-    const findType = array.some(object => object.type === type);
-    console.log(findType, code);
-  };
-
   const handleSelect = () => {
     setSelected(prev => !prev);
     const colorObject = { type: 'color', value: code };
-    console.log('array:', context.appliedFilters);
-    // checkObjects(
-    //   context.appliedFilters.length > 0
-    //     ? checkObjects(context.appliedFilters, ...colorObject)
-    //     : context.setAppliedFilters(prev => [...prev, colorObject]),
-    // );
+    // console.log('array:', context.appliedFilters);
+
     context.setAppliedFilters(prev => [...prev, colorObject]);
   };
 
@@ -48,15 +32,15 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
       {colorsMap === undefined ? (
         'Loading...'
       ) : (
-        <li className={s.ColorItem__option}>
+        <div className={s.ColorItem__option}>
           <div className={s.ColorItem__wrapper} onClick={handleSelect}>
             <input
-              type="radio"
-              className={`${s.ColorItem__radio}, ${s.ColorItem__radio_relative}`}
+              type="checkbox"
+              className={`${s.ColorItem__checkbox}, ${s.ColorItem__checkbox_relative}`}
             />
             <span
               id="colorpicker"
-              className={s.ColorItem__radio}
+              className={s.ColorItem__checkbox}
               style={{
                 backgroundColor: code ? code : 'grey',
                 backgroundImage: `url(${code})`,
@@ -83,7 +67,7 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
           ) : (
             'Loading...'
           )}
-        </li>
+        </div>
       )}
     </>
   );

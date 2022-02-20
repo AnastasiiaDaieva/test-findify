@@ -1,6 +1,62 @@
+.Grid__container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Grid {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+}
+
+// MEDIA RULES
+
+@media screen and (max-width: 399.99px) {
+  .Grid {
+    margin-top: -47px;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 499.99px) {
+  .Grid {
+    margin-top: -36px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 767.99px) {
+  .Grid {
+    margin-top: -36px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 990.99px) {
+  .Grid {
+    margin-top: -36px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1279.99px) {
+  .Grid {
+    margin-top: -34px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .Grid {
+    margin-top: -34px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }

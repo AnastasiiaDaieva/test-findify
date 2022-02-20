@@ -9,6 +9,12 @@ import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import { UserContext } from './UserContext';
 
+// Grid__container - CONTAINER
+// Grid - CARD-SET
+// ProductCard - ITEM
+// ProductCard__article - CARD
+// ConditionalImage__wrapper - THUMB
+
 function App() {
   const [products, setProducts] = useState([]);
   const [facets, setFacets] = useState([]);
@@ -22,7 +28,7 @@ function App() {
   // ];
 
   const appContext = useContext(UserContext);
-  console.log('app context:', appContext);
+  // console.log('app context:', appContext);
 
   useEffect(() => {
     setLoading(true);
@@ -63,7 +69,7 @@ function App() {
                 filterArray={appContext}
                 setFinalFilter={setFinalFilter}
                 // style={{
-                //   display: hardCodeBreadcrumbs.length > 0 ? 'flex' : 'none',
+                //   display: appContext.length > 0 ? 'flex' : 'none',
                 // }}
               />
 

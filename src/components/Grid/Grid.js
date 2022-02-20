@@ -6,11 +6,13 @@ import s from './Grid.module.scss';
 
 function Grid({ items }) {
   return (
-    <ul className={s.Grid}>
-      {items.map(item => (
-        <ProductCard item={item} key={nanoid()} />
-      ))}
-    </ul>
+    <div className={s.Grid__container}>
+      <ul className={s.Grid}>
+        {items.map(item => (
+          <ProductCard item={item} key={nanoid()} />
+        ))}
+      </ul>
+    </div>
   );
 }
 

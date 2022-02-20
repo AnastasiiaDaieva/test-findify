@@ -2,16 +2,16 @@
 
 .Filter {
   display: flex;
-
   flex-direction: column;
 
-  @media screen and (min-width: 500px) {
-    min-width: 180px;
+  @media screen and (min-width: 768px) {
     margin-right: 24px;
   }
 
-  @media screen and (min-width: 1024px) {
-    min-width: 337px;
+  @media screen and (max-width: 767.99px) {
+    margin-right: 0;
+    padding-right: 19px;
+    padding-left: 19px;
   }
 }
 
@@ -19,8 +19,10 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 1.14;
+  margin-top: 20px;
   margin-bottom: 40px;
   position: relative;
+
   &::after {
     content: '';
     width: 100%;
@@ -35,4 +37,25 @@
 
 .Filter__options {
   text-transform: none;
+}
+
+// MEDIA RULES ACC TO BREAKPOINTS
+
+@media screen and (max-width: 767.99px) {
+  .Filter {
+    min-width: 186px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.99px) {
+  .Filter {
+    min-width: 250px;
+    max-width: 337px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .Filter {
+    min-width: 337px;
+  }
 }

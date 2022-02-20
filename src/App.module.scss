@@ -2,24 +2,10 @@
   text-align: center;
 }
 
-.App__main {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 17px;
-  padding-top: 20px;
-  @media screen and (min-width: 400px) {
-    padding: 20px 10px 30px 20px;
-  }
-
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    padding: 30px, 13px, 30px, 15px;
-  }
-}
-
 .App__body {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .App__header {
@@ -28,6 +14,7 @@
   line-height: 1.16;
   position: relative;
   padding-top: 50px;
+  margin-bottom: 30px;
   @media screen and (min-width: 768px) {
     margin-bottom: 30px;
     padding: 36px 0 21px 31px;
@@ -39,7 +26,43 @@
     border-bottom: solid 1px var(--divider-color);
     position: absolute;
     left: 0;
-    bottom: 21;
     z-index: 1;
+  }
+}
+
+.App__main {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+// Below 400px*** - 1 product per row
+@media screen and (max-width: 399.99px) {
+  .App__main {
+    padding: 0 17px 20px 17px;
+    padding-top: 20px;
+  }
+}
+
+// # ***400-499px*** - 2 products per row
+@media screen and (min-width: 400px) and (max-width: 499.99px) {
+  .App__main {
+    padding: 0 10px 30px 10px;
+  }
+}
+
+// # ***500-767px*** - 3 products per row
+@media screen and (min-width: 500px) and (max-width: 767.99px) {
+  .App__main {
+    padding: 0;
+  }
+}
+
+// # ***991-1279px*** - 3 products per row
+@media screen and (min-width: 768px) {
+  .App__main {
+    padding-left: 15px;
+    padding-bottom: 30px;
   }
 }

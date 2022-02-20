@@ -1,12 +1,31 @@
 import s from './Breadcrumbs.module.scss';
 
-import { useEffect } from 'react';
-
+import { useContext } from 'react';
 import { ReactComponent as BcRemove } from '../../../icons/bc-remove.svg';
 import { ReactComponent as BcColor } from '../../../icons/bc-color.svg';
+import { ReactComponent as BcStrike } from '../../../icons/bc-strike.svg';
+import { UserContext } from 'UserContext';
 
-function Breadcrumbs({ filterArray, setFinalFilter }) {
-  console.log('bc filters:', filterArray.appliedFilters);
+function Breadcrumbs({ filterArray }) {
+  // console.log('bc filters:', filterArray.appliedFilters);
+
+  const context = useContext(UserContext);
+
+  const removeFilter = value => {
+    const applied = context.appliedFilters;
+    const idx = applied.findIndex(object => object.value === value);
+    context.setAppliedFilters(prev => prev.filter((_, index) => index !== idx));
+    // console.log('updated filters:', applied);
+  };
+
+  const colorSvg = value => {
+    return (
+      <BcColor>
+        <replace path="children[0].fill" to={value} />
+      </BcColor>
+    );
+  };
+
   return (
     <>
       {filterArray.appliedFilters === undefined ? (
@@ -14,15 +33,19 @@ function Breadcrumbs({ filterArray, setFinalFilter }) {
       ) : (
         <ul className={s.Breadcrumbs}>
           {filterArray.appliedFilters.map(({ type, value }) => (
-            <li key={value} className={s.Breadcrumbs__unit}>
+            <li
+              key={value}
+              className={s.Breadcrumbs__unit}
+              onClick={() => removeFilter(value)}
+            >
               <span className={s.Breadcrumbs__value}>
-                {type === 'color' ? (
-                  <BcColor className={s.Breadcrumbs__icon} />
-                ) : (
-                  value
-                )}
+                {type === 'color' ? colorSvg(value) : value}
               </span>
               <BcRemove className={s.Breadcrumbs__icon} />
+              <BcStrike
+                className={s.Breadcrumbs__icon_strike}
+                style={{ display: 'none' }}
+              />
             </li>
           ))}
         </ul>

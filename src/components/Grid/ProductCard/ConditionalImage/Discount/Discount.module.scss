@@ -16,7 +16,6 @@
   z-index: 10;
   top: 0;
   right: 0;
-  width: 82px;
 }
 
 .Discount__percentage_text,
@@ -46,6 +45,6 @@
   right: 22px;
 
   @media screen and (min-width: 400px) and (max-width: 499px) {
-    right: 5px;
+    right: 15px;
   }
 }

@@ -2,6 +2,9 @@
 
 .MaterialItem__option {
   composes: ColorItem__option from '../Color/ColorItem.module.scss';
+  &:hover .MaterialItem__checkbox {
+    border: 1px solid var(--main-color);
+  }
 }
 
 .MaterialItem__count {
@@ -12,14 +15,14 @@
   composes: ColorItem__wrapper from '../Color/ColorItem.module.scss';
 }
 
-.MaterialItem__radio_relative {
-  composes: ColorItem__radio_relative from '../Color/ColorItem.module.scss';
+.MaterialItem__checkbox_relative {
+  composes: ColorItem__checkbox_relative from '../Color/ColorItem.module.scss';
 }
 
-.MaterialItem__radio {
-  composes: ColorItem__radio from '../Color/ColorItem.module.scss';
+.MaterialItem__checkbox {
+  composes: ColorItem__checkbox from '../Color/ColorItem.module.scss';
   border-radius: 0;
-  border: 1px solid var(--radio-color);
+  border: 1px solid var(--checkbox-color);
   position: relative;
 }
 

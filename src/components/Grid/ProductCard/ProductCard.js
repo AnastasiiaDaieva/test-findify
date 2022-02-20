@@ -9,15 +9,17 @@ function ProductCard({ id, item }) {
   return (
     <li key={id} className={s.ProductCard}>
       <a href={product_url} target="_blank" rel="noreferrer noopener nofollow">
-        <ConditionalImage
-          compare_at={compare_at}
-          price={price}
-          title={title}
-          image_url={image_url}
-        />
-        <div className={s.ProductCard__wrapper}>
-          <p className={s.ProductCard__title}>{title}</p>
-          <ConditionalPrice price={price} compare_at={compare_at} />
+        <div className={s.ProductCard__thumb}>
+          <ConditionalImage
+            compare_at={compare_at}
+            price={price}
+            title={title}
+            image_url={image_url}
+          />
+          <div className={s.ProductCard__wrapper}>
+            <p className={s.ProductCard__title}>{title}</p>
+            <ConditionalPrice price={price} compare_at={compare_at} />
+          </div>
         </div>
       </a>
     </li>

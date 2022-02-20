@@ -1,64 +1,195 @@
 @import '/src/index.module.scss';
 
-.ProductCard {
-  max-width: 341px;
-  height: 587px;
-
-  &:not(:last-child) {
-    margin-bottom: 47px;
-  }
-
-  @media screen and (min-width: 400px) and (max-width: 499px) {
-    flex-basis: calc(100% / 2 - 15px);
-    margin-right: 15px;
-    margin-bottom: 36px;
-    max-width: 186px;
-    height: 316px;
-  }
-
-  @media screen and (min-width: 500px) and (max-width: 1279px) {
-    max-width: 200px;
-    height: 420px;
-    &:not(:last-child) {
-      margin-bottom: 36px;
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 245px;
-    height: 420px;
-    &:not(:last-child) {
-      margin-bottom: 36px;
-    }
-  }
-
-  @media screen and (min-width: 500px) and (max-width: 767px) {
-    flex-basis: calc(100% / 3 - 18px);
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 990px) {
-    flex-basis: calc(100% / 2 - 40px);
-  }
-
-  @media screen and (min-width: 991px) and (max-width: 1279px) {
-    flex-basis: calc(100% / 3 - 5px);
-  }
-
-  @media screen and (min-width: 1280px) {
-    flex-basis: calc(100% / 4 - 18px);
-  }
-}
-
 .ProductCard__title {
   font-size: 12px;
   line-height: 1.16;
-  margin-bottom: 25px;
+}
 
-  @media screen and (min-width: 400px) and (max-width: 499px) {
+.ProductCard__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+// IMAGE
+
+.ConditionalImage {
+  object-fit: cover;
+}
+
+// MEDIA RULES
+//Below 400px*** - 1 product per row
+@media screen and (max-width: 399.99px) {
+  .ProductCard {
+    flex-basis: calc(100% / 1);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 47px;
+  }
+
+  .ProductCard__title {
+    margin-bottom: 25px;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 26px;
+  }
+
+  .ConditionalImage {
+    width: 341px;
+    height: 489px;
+  }
+}
+
+// # ***400-499px*** - 2 products per row
+@media screen and (min-width: 400px) and (max-width: 499.99px) {
+  .ProductCard {
+    flex-basis: calc(100% / 2 - 15px);
+    margin-top: 36px;
+    width: 186px;
+    height: 320px;
+  }
+
+  .ProductCard__title {
     margin-bottom: 14px;
   }
 
-  @media screen and (min-width: 500px) {
+  .ProductCard__thumb {
+    width: 186px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 14px;
+  }
+
+  .ConditionalImage {
+    width: 186px;
+    height: 266px;
+  }
+}
+
+// # ***500-767px*** - 3 products per row
+@media screen and (min-width: 500px) and (max-width: 767.99px) {
+  .ProductCard {
+    flex-basis: calc(100% / 3 - 10px);
+    margin-top: 36px;
+    width: 160px;
+    height: 278px;
+  }
+
+  .ProductCard__thumb {
+    width: 160px;
+    height: 278px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ProductCard__title {
+    font-size: 10px;
     margin-bottom: 18px;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 14px;
+  }
+
+  .ConditionalImage {
+    width: 160px;
+    height: 231px;
+  }
+}
+
+// # ***768-990px*** - 2 products per row
+@media screen and (min-width: 768px) and (max-width: 990.99px) {
+  .ProductCard {
+    flex-basis: calc(100% / 2 - 10px);
+    margin-top: 36px;
+    width: 220px;
+    height: 378px;
+  }
+
+  .ProductCard__thumb {
+    width: 220px;
+    height: 378px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ProductCard__title {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 19px;
+  }
+
+  .ConditionalImage {
+    width: 220px;
+    height: 318px;
+  }
+}
+
+// # ***991-1279px*** - 3 products per row
+@media screen and (min-width: 991px) and (max-width: 1279.99px) {
+  .ProductCard {
+    flex-basis: calc(100% / 3 - 10px);
+    margin-top: 34px;
+    width: 220px;
+    height: 378px;
+  }
+
+  .ProductCard__thumb {
+    width: 220px;
+    height: 378px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ProductCard__title {
+    margin-bottom: 18px;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 19px;
+  }
+
+  .ConditionalImage {
+    width: 220px;
+    height: 318px;
+  }
+}
+
+// # ***1280px and up*** - 4 products per row
+@media screen and (min-width: 1280px) {
+  .ProductCard {
+    flex-basis: calc(100% / 4 - 18px);
+    margin-top: 34px;
+    width: 247px;
+    height: 421px;
+  }
+
+  .ProductCard__thumb {
+    width: 247px;
+    height: 421px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ProductCard__title {
+    margin-bottom: 18px;
+  }
+
+  .ConditionalImage__wrapper {
+    margin-bottom: 19px;
+  }
+
+  .ConditionalImage {
+    width: 247px;
+    height: 354px;
   }
 }

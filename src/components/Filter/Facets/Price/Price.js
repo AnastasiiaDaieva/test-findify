@@ -1,12 +1,14 @@
 import s from './Price.module.scss';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { UserContext } from 'UserContext';
 
 import { ReactComponent as PriceDivider } from '../../../../icons/price-divider.svg';
 
-function Price({ options, passFilter }) {
+function Price({ options }) {
+  const raw = options[0].value;
   const getRange = () => {
-    const raw = options[0].value;
     const transformed = raw.split('_');
     return transformed;
   };
@@ -17,7 +19,8 @@ function Price({ options, passFilter }) {
   const [maxPrice, setMaxPrice] = useState(Math.round(array[1]));
   const [currentMinPrice, setCurrentMinPrice] = useState(minPrice);
   const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice);
-  const [range, setRange] = useState({});
+
+  const context = useContext(UserContext);
 
   useEffect(() => {
     setMinPrice(Math.round(array[0]));
@@ -33,10 +36,16 @@ function Price({ options, passFilter }) {
     }
   };
 
-  // an unfinished attempt to pass filter values
-  const setPriceRange = () => {
-    passFilter({ min: currentMinPrice, highest: currentMaxPrice });
-    // console.log('set range:', range);
+  const breadcrumbsRange = `$${Math.round(array[0])} - $${Math.round(
+    array[1],
+  )}`;
+  // console.log(array);
+
+  const handleGo = () => {
+    const rangeObject = { type: 'range', value: breadcrumbsRange };
+    // console.log('array:', context.appliedFilters);
+
+    context.setAppliedFilters(prev => [...prev, rangeObject]);
   };
 
   return (
@@ -67,7 +76,7 @@ function Price({ options, passFilter }) {
             <span className={s.Price__window}>$ {currentMaxPrice}</span>
             <button
               type="button"
-              onClick={setPriceRange}
+              onClick={handleGo}
               className={s.Price__button}
             >
               Go

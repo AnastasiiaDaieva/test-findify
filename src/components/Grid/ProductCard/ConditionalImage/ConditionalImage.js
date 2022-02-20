@@ -1,5 +1,5 @@
-import Discount from '../Discount/Discount';
-import s from './ConditionalImage.module.scss';
+import Discount from './Discount/Discount';
+import s from '../ProductCard.module.scss';
 
 function ConditionalImage({ compare_at, title, image_url, price }) {
   return (

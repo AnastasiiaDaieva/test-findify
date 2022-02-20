@@ -7,7 +7,7 @@
   --add-color: #939393;
   --slider-color: #a9a9a9;
   --divider-color: #efefef;
-  --radio-color: #cccccc;
+  --checkbox-color: #cccccc;
   --timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --standard-animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -68,6 +68,10 @@ img {
 a {
   text-decoration: none;
   color: var(--main-color);
+}
+
+article {
+  margin: 0;
 }
 
 h1,

@@ -1,8 +1,6 @@
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 
-import s from './Color.module.scss';
-
 import { useEffect, useState } from 'react';
 
 import MoreLess from '../FacetElements/MoreLess';

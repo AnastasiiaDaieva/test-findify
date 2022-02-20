@@ -16,11 +16,7 @@ function FacetHeading({ name, toggleCallback }) {
   return (
     <div onClick={toggleFacet} className={s.FacetHeading__wrapper}>
       <h3 className={s.FacetHeading}>{name}</h3>
-      {isOpen ? (
-        <CloseFacet className={s.FacetHeading__icon} />
-      ) : (
-        <OpenFacet className={s.FacetHeading__icon} />
-      )}
+      {isOpen ? <CloseFacet /> : <OpenFacet />}
     </div>
   );
 }
