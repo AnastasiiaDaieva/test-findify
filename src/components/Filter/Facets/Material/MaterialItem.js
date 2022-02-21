@@ -4,7 +4,7 @@ import { ReactComponent as Checkmark } from '../../../../icons/checkmark.svg';
 import { useContext, useState } from 'react';
 import { UserContext } from 'UserContext';
 
-function MaterialItem({ value, count, onClick }) {
+function MaterialItem({ value, count }) {
   const [selected, setSelected] = useState(false);
 
   const context = useContext(UserContext);
@@ -12,7 +12,6 @@ function MaterialItem({ value, count, onClick }) {
   const handleCheck = () => {
     setSelected(prev => !prev);
     const materialObject = { type: 'text', value: value };
-    onClick(prev => [...prev, materialObject]);
 
     context.setAppliedFilters(prev => {
       const newArray = prev.some(item => materialObject.value === item.value)

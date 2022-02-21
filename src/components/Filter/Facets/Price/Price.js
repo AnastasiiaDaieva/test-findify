@@ -53,22 +53,24 @@ function Price({ value }) {
         'Loading...'
       ) : (
         <section className={s.Price}>
-          <input
-            id="minprice"
-            className={s.Price__input}
-            min={minPrice}
-            max={maxPrice}
-            type="range"
-            onChange={getVals}
-          />
-          <input
-            id="maxprice"
-            className={s.Price__input}
-            min={minPrice}
-            max={maxPrice}
-            type="range"
-            onChange={getVals}
-          />
+          <div className={s.Price__input_container}>
+            <input
+              id="minprice"
+              className={s.Price__input}
+              min={minPrice}
+              max={maxPrice}
+              type="range"
+              onChange={getVals}
+            />
+            <input
+              id="maxprice"
+              className={s.Price__input}
+              min={minPrice}
+              max={maxPrice}
+              type="range"
+              onChange={getVals}
+            />
+          </div>
           <div className={s.Price__value}>
             <span className={s.Price__window}>$ {currentMinPrice}</span>
             <PriceDivider className={s.Price__divider} />

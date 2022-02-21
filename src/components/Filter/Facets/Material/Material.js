@@ -32,7 +32,6 @@ function Material({ options, type }) {
               count={count}
               key={nanoid()}
               type={type}
-              onClick={setSelectedItems}
               selected={selectedItems}
             />
           ))}
