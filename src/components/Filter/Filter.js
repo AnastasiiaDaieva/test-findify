@@ -6,7 +6,6 @@ import FacetTemplate from './Facets/FacetElements/FacetTemplate';
 
 function Filter({ facets, breadcrumbsCallback }) {
   const setFilter = array => {
-    // console.log('setFilterArray:', array);
     breadcrumbsCallback(array);
   };
 

@@ -8,7 +8,6 @@ import { UserContext } from 'UserContext';
 function ColorItem({ name, code, colorArray, colorsMap }) {
   const [selected, setSelected] = useState(false);
   const context = useContext(UserContext);
-  // console.log(context);
 
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
@@ -22,9 +21,13 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
   const handleSelect = () => {
     setSelected(prev => !prev);
     const colorObject = { type: 'color', value: code };
-    // console.log('array:', context.appliedFilters);
 
-    context.setAppliedFilters(prev => [...prev, colorObject]);
+    context.setAppliedFilters(prev => {
+      const newArray = prev.some(item => colorObject.value === item.value)
+        ? [...prev.filter(({ value }) => value !== colorObject.value)]
+        : [...prev, colorObject];
+      return newArray;
+    });
   };
 
   return (

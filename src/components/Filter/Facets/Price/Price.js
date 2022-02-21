@@ -6,10 +6,9 @@ import { UserContext } from 'UserContext';
 
 import { ReactComponent as PriceDivider } from '../../../../icons/price-divider.svg';
 
-function Price({ options }) {
-  const raw = options[0].value;
+function Price({ value }) {
   const getRange = () => {
-    const transformed = raw.split('_');
+    const transformed = value.split('_');
     return transformed;
   };
 
@@ -17,6 +16,7 @@ function Price({ options }) {
 
   const [minPrice, setMinPrice] = useState(Math.round(array[0]));
   const [maxPrice, setMaxPrice] = useState(Math.round(array[1]));
+
   const [currentMinPrice, setCurrentMinPrice] = useState(minPrice);
   const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice);
 
@@ -36,26 +36,20 @@ function Price({ options }) {
     }
   };
 
-  // console.log(array);
-
   const handleGo = () => {
     const breadcrumbsRange = `$${currentMinPrice}-$${currentMaxPrice}`;
     const rangeObject = { type: 'range', value: breadcrumbsRange };
-    // console.log('array:', context.appliedFilters);
-    context.setAppliedFilters(prev => [...prev, rangeObject]);
     context.setAppliedFilters(prev => {
       const newArray = prev.some(item => rangeObject.type === item.type)
         ? [...prev.filter(({ type }) => type !== rangeObject.type), rangeObject]
         : [...prev, rangeObject];
-
-      console.log(newArray);
       return newArray;
     });
   };
 
   return (
     <>
-      {options === undefined ? (
+      {value === undefined ? (
         'Loading...'
       ) : (
         <section className={s.Price}>

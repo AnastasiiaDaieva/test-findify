@@ -14,19 +14,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [facets, setFacets] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [breadcrumbs, setBreadcrumbs] = useState([]);
-
-  // const hardCodeBreadcrumbs = [
-  //   { type: 'text', value: 'Amethyst' },
-  //   { type: 'color', value: '#fff' },
-  //   { type: 'range', value: '1-500' },
-  // ];
 
   const appContext = useContext(UserContext);
-  // console.log('app context:', appContext);
-
-  const filteredBreadcrumbs = appContext;
-  console.log(filteredBreadcrumbs);
 
   useEffect(() => {
     setLoading(true);
@@ -41,11 +30,6 @@ function App() {
       .catch(error => console.log(error.message))
       .finally(setLoading(false));
   }, []);
-
-  // // an unfinished attempt to handle breadcrumbs
-  // const setFinalFilter = array => {
-  //   setBreadcrumbs(array);
-  // };
 
   return (
     <>

@@ -9,15 +9,17 @@ function MaterialItem({ value, count, onClick }) {
 
   const context = useContext(UserContext);
 
-  // console.log(selected);
   const handleCheck = () => {
     setSelected(prev => !prev);
-
     const materialObject = { type: 'text', value: value };
-    // console.log('array:', context.appliedFilters);
     onClick(prev => [...prev, materialObject]);
 
-    context.setAppliedFilters(prev => [...prev, materialObject]);
+    context.setAppliedFilters(prev => {
+      const newArray = prev.some(item => materialObject.value === item.value)
+        ? [...prev.filter(({ value }) => value !== materialObject.value)]
+        : [...prev, materialObject];
+      return newArray;
+    });
   };
 
   const onHover = e => {
