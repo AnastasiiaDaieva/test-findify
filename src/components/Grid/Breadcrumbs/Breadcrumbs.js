@@ -39,7 +39,13 @@ function Breadcrumbs({ filterArray }) {
               onClick={() => removeFilter(value)}
             >
               <span className={s.Breadcrumbs__value}>
-                {type === 'color' ? colorSvg(value) : value}
+                {type === 'color' ? (
+                  <BcColor
+                    style={{ fill: value.includes('#') ? value : '#C2C2C2' }}
+                  />
+                ) : (
+                  value
+                )}
               </span>
               <BcRemove className={s.Breadcrumbs__icon} />
               <BcStrike

@@ -36,16 +36,21 @@ function Price({ options }) {
     }
   };
 
-  const breadcrumbsRange = `$${Math.round(array[0])} - $${Math.round(
-    array[1],
-  )}`;
   // console.log(array);
 
   const handleGo = () => {
+    const breadcrumbsRange = `$${currentMinPrice}-$${currentMaxPrice}`;
     const rangeObject = { type: 'range', value: breadcrumbsRange };
     // console.log('array:', context.appliedFilters);
-
     context.setAppliedFilters(prev => [...prev, rangeObject]);
+    context.setAppliedFilters(prev => {
+      const newArray = prev.some(item => rangeObject.type === item.type)
+        ? [...prev.filter(({ type }) => type !== rangeObject.type), rangeObject]
+        : [...prev, rangeObject];
+
+      console.log(newArray);
+      return newArray;
+    });
   };
 
   return (

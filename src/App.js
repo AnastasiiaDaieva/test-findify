@@ -6,20 +6,15 @@ import Grid from './components/Grid/Grid';
 import s from './App.module.scss';
 
 import axios from 'axios';
+
 import { useEffect, useState, useContext } from 'react';
 import { UserContext } from './UserContext';
-
-// Grid__container - CONTAINER
-// Grid - CARD-SET
-// ProductCard - ITEM
-// ProductCard__article - CARD
-// ConditionalImage__wrapper - THUMB
 
 function App() {
   const [products, setProducts] = useState([]);
   const [facets, setFacets] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [breadcrumbs, setBreadcrumbs] = useState([]);
+  // const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   // const hardCodeBreadcrumbs = [
   //   { type: 'text', value: 'Amethyst' },
@@ -29,6 +24,9 @@ function App() {
 
   const appContext = useContext(UserContext);
   // console.log('app context:', appContext);
+
+  const filteredBreadcrumbs = appContext;
+  console.log(filteredBreadcrumbs);
 
   useEffect(() => {
     setLoading(true);
@@ -44,10 +42,10 @@ function App() {
       .finally(setLoading(false));
   }, []);
 
-  // an unfinished attempt to handle breadcrumbs
-  const setFinalFilter = array => {
-    setBreadcrumbs(array);
-  };
+  // // an unfinished attempt to handle breadcrumbs
+  // const setFinalFilter = array => {
+  //   setBreadcrumbs(array);
+  // };
 
   return (
     <>
@@ -59,18 +57,13 @@ function App() {
             <Header />
           </header>
           <main className={s.App__main}>
-            <Filter
-              facets={facets}
-              loading={loading}
-              breadcrumbs={setFinalFilter}
-            />
+            <Filter facets={facets} loading={loading} />
             <div className={s.App__body}>
               <Breadcrumbs
                 filterArray={appContext}
-                setFinalFilter={setFinalFilter}
-                // style={{
-                //   display: appContext.length > 0 ? 'flex' : 'none',
-                // }}
+                style={{
+                  display: appContext.length > 0 ? 'flex' : 'none',
+                }}
               />
 
               <Grid items={products} />
