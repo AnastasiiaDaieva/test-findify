@@ -1,24 +1,21 @@
 import s from './MaterialItem.module.scss';
 
 import { ReactComponent as Checkmark } from '../../../../icons/checkmark.svg';
-import { useContext, useState } from 'react';
-import { UserContext } from 'UserContext';
+import { useState } from 'react';
 
 function MaterialItem({ value, count }) {
   const [selected, setSelected] = useState(false);
 
-  const context = useContext(UserContext);
-
   const handleCheck = () => {
     setSelected(prev => !prev);
     const materialObject = { type: 'text', value: value };
-
-    context.setAppliedFilters(prev => {
-      const newArray = prev.some(item => materialObject.value === item.value)
-        ? [...prev.filter(({ value }) => value !== materialObject.value)]
-        : [...prev, materialObject];
-      return newArray;
-    });
+    console.log(materialObject);
+    // context.setAppliedFilters(prev => {
+    //   const newArray = prev.some(item => materialObject.value === item.value)
+    //     ? [...prev.filter(({ value }) => value !== materialObject.value)]
+    //     : [...prev, materialObject];
+    //   return newArray;
+    // });
   };
 
   const onHover = e => {

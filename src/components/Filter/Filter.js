@@ -4,9 +4,9 @@ import s from './Filter.module.scss';
 
 import FacetTemplate from './Facets/FacetElements/FacetTemplate';
 
-function Filter({ facets, breadcrumbsCallback }) {
-  const setFilter = array => {
-    breadcrumbsCallback(array);
+function Filter({ facets, setFunc }) {
+  const setFilter = object => {
+    setFunc(object);
   };
 
   return (
@@ -19,7 +19,7 @@ function Filter({ facets, breadcrumbsCallback }) {
             name={name}
             type={type}
             array={values}
-            breadcrumbs={() => setFilter}
+            setFunc={setFilter}
           />
         ))}
       </ul>

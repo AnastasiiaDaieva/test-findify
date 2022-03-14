@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import MoreLess from '../FacetElements/MoreLess';
 import ColorItem from './ColorItem';
 
-function Color({ options }) {
+function Color({ options, setFunc }) {
   const [seeMore, setSeeMore] = useState(false);
   const [colorsMap, setColorsMap] = useState([]);
+  // const [chosenColors, setChosenColors] = useState([]);
+  // console.log(chosenColors);
 
   useEffect(() => {
     axios
@@ -21,6 +23,10 @@ function Color({ options }) {
 
   const setMore = () => {
     setSeeMore(!seeMore);
+  };
+
+  const sendFilter = colorObject => {
+    setFunc(colorObject);
   };
 
   const arrangedArray = () => {
@@ -44,6 +50,7 @@ function Color({ options }) {
               code={code}
               colorArray={options}
               colorsMap={colorsMap}
+              setFunc={sendFilter}
             />
           ))}
           <MoreLess boolean={seeMore} setBoolean={setMore} />

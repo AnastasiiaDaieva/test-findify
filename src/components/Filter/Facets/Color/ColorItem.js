@@ -1,13 +1,12 @@
 import s from './ColorItem.module.scss';
 
 import { ReactComponent as Checkmark } from '../../../../icons/checkmark.svg';
+import { nanoid } from 'nanoid';
 
-import { useContext, useState } from 'react';
-import { UserContext } from 'UserContext';
+import { useState } from 'react';
 
-function ColorItem({ name, code, colorArray, colorsMap }) {
+function ColorItem({ name, code, colorArray, colorsMap, setFunc }) {
   const [selected, setSelected] = useState(false);
-  const context = useContext(UserContext);
 
   const getCount = (array, name) => {
     const result = array.find(({ value, count }) => name === value);
@@ -21,13 +20,7 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
   const handleSelect = () => {
     setSelected(prev => !prev);
     const colorObject = { type: 'color', value: code };
-
-    context.setAppliedFilters(prev => {
-      const newArray = prev.some(item => colorObject.value === item.value)
-        ? [...prev.filter(({ value }) => value !== colorObject.value)]
-        : [...prev, colorObject];
-      return newArray;
-    });
+    setFunc(colorObject);
   };
 
   return (
@@ -35,7 +28,7 @@ function ColorItem({ name, code, colorArray, colorsMap }) {
       {colorsMap === undefined ? (
         'Loading...'
       ) : (
-        <div className={s.ColorItem__option}>
+        <div className={s.ColorItem__option} id={nanoid()}>
           <div className={s.ColorItem__wrapper} onClick={handleSelect}>
             <input
               type="checkbox"
